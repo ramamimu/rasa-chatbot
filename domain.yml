@@ -11,6 +11,7 @@ intents:
   - hobbies
   - tell_hobbies
   - hello_world
+  - give_shoesize
 
 # entities:
 #   - name
@@ -62,8 +63,38 @@ responses:
   utter_ask_name:
   - text: "What is your name?"
 
+  # utter ask shoesize
+  utter_ask_shoesize:
+  - text: "i have a good news. I want to give you shoes, What is your size?"
+
+
 actions:
   - action_custom
+  # - action_name
+  - action_shoe
+
+entities:
+  - shoesize
+      # roles:
+      #   - small
+      #   - medium
+      #   - large
+  # - name 
+
+
+slots:
+  shoesize:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: shoesize
+  # name:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_entity
+  #       entity: name
 
 session_config:
   session_expiration_time: 60

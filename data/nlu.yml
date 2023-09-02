@@ -126,3 +126,16 @@ nlu:
   examples: |
     - hello world
     - world
+
+# - intent: give_name
+#   examples: |
+#     - my name is [Rasa](name)
+
+- intent: give_shoesize
+  examples: |
+    - my shoesize is [small](shoesize)
+    - i wear [medium](shoesize)
+    - i have [large](shoesize) shoesize
+    - mine is [extra large](shoesize)
+    - i have [extra small](shoesize) shoesize
+    - [small](shoesize)

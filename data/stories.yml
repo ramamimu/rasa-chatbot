@@ -38,6 +38,12 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - action: utter_ask_shoesize
+  - intent: give_shoesize
+  - action: action_shoe
+
+- story: hello world path
+  steps:
   - intent: hello_world
   - action: action_custom
 
