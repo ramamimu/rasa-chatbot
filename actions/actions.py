@@ -41,7 +41,8 @@ class ActionCustom(Action):
 #         return "action_name"
 
 #     def run(self, dispatcher, tracker, domain):
-#         dispatcher.utter_message("My name is Rasa!")
+#         name = tracker.get_slot("name")
+#         dispatcher.utter_message("hi, morning {}!".format(name))
 #         return []
 
 class ActionShoe(Action):

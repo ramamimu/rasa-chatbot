@@ -6,9 +6,10 @@ models/
 .rasa/
 .DS_Store
 venv
-**/__pycache__
-__pycache__/
-
+**/__pycache__/
+actions/__pycache__/*
+*.dot
+*.pyc
 
 **/*.db*
 */story_graph.dot

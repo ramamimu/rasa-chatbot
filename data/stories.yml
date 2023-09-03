@@ -36,16 +36,18 @@ stories:
 
 - story: greet path
   steps:
-  - intent: greet
-  - action: utter_greet
+  # - intent: greet
+  # - action: utter_greet
+  - intent: hello_world
+  - action: action_custom
   - action: utter_ask_shoesize
   - intent: give_shoesize
   - action: action_shoe
 
-- story: hello world path
-  steps:
-  - intent: hello_world
-  - action: action_custom
+# - story: hello world path
+#   steps:
+#   - intent: hello_world
+#   - action: action_custom
 
 - story: hobbies path
   steps:
@@ -53,3 +55,14 @@ stories:
   - action: utter_hobbies
   - intent: hobbies
   - action: utter_hobbies_response
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: name
+  - intent: give_name
+    entities:
+    - name: rams

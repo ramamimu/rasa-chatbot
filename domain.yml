@@ -1,50 +1,32 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - hobbies
-  - tell_hobbies
-  - hello_world
-  - give_shoesize
-
-# entities:
-#   - name
-
-# slots:
-#   name:
-#     type: text
-#     mappings:
-#       - type: from_entity
-#         entity: name
-
+- bot_challenge
+- deny
+- give_name
+- give_shoesize
+- goodbye
+- greet
+- hello_world
+- hobbies
+- mood_great
+- mood_unhappy
+- tell_hobbies
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How are you?
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-  - text: "Did that help you?"
-
+  - text: Did that help you?
   utter_happy:
-  - text: "Great, carry on!"
-  - text: "Good to hear!"
-  - text: "Awesome!"
-
+  - text: Great, carry on!
+  - text: Good to hear!
+  - text: Awesome!
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+  - text: I am a bot, powered by Rasa.
   utter_hobbies:
   - text: really! what are your hobbies?
   - text: yeah, what do you like to do?
@@ -53,49 +35,39 @@ responses:
   - text: what do you like to do in your free time?
   - text: what do you like to do in your spare time?
   - text: what is it?
-
   utter_hobbies_response:
-  - text: "wow, such a nice hobby"
-  - text: "I like that hobby too"
-  - text: "I like that hobby too, but I am not good at it"
-  
-  # asking name
+  - text: wow, such a nice hobby
+  - text: I like that hobby too
+  - text: I like that hobby too, but I am not good at it
   utter_ask_name:
-  - text: "What is your name?"
-
-  # utter ask shoesize
+  - text: What is your name?
   utter_ask_shoesize:
-  - text: "i have a good news. I want to give you shoes, What is your size?"
-
-
+  - text: i have a good news. I want to give you shoes, What is your size?
+  utter_telling_name:
+  - text: Hello {name}, nice to meet you!
 actions:
-  - action_custom
-  # - action_name
-  - action_shoe
-
+- action_custom
+- action_shoe
 entities:
-  - shoesize
-      # roles:
-      #   - small
-      #   - medium
-      #   - large
-  # - name 
-
-
+- shoesize
+- name
 slots:
   shoesize:
     type: text
     influence_conversation: false
     mappings:
-      - type: from_entity
-        entity: shoesize
-  # name:
-  #   type: text
-  #   influence_conversation: false
-  #   mappings:
-  #     - type: from_entity
-  #       entity: name
-
+    - type: from_entity
+      entity: shoesize
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+forms:
+  name_form:
+    required_slots:
+    - name
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
